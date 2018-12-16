@@ -6,17 +6,35 @@ using System.Windows.Forms;
 
 namespace testStreamsAndFiles
 {
-    static class Program
+   // c# inheritance
+    
+  class human
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        public virtual string Said()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            return "i am human";
+        }
+    }
+    class child : human
+    {
+        public override string Said()
+        {
+            return "i am child"; 
+        }
+    }
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            human item1 = new human();
+            human item2 = new child();
+           
+            Console.WriteLine(
+            item1.Said()+
+            "\n"+
+            item2.Said());
+            Console.ReadKey();
         }
     }
 }
